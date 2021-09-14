@@ -1,0 +1,230 @@
+:root {
+  --color-white: #f4f4f4;
+  --color-gray-light: #d1d1d1;
+  --color-black: #222;
+  --color-primary: #AB0012;
+  --color-orange: #FF6508;
+  --color-green: #48912A;
+  --color-green-light: #ABC44C;
+  --min-width: 360px;
+  --max-width: 1200px;
+  --base-font-family: Arial, Helvetica, sans-serif;
+  --fancy-font-family: 'Lobster', serif;
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  height: 40px;
+  background-color: var(--color-primary);
+  padding: 10px 10px 10px 15%;
+  display: flex;
+}
+
+.main-container {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+.cart__overlay {
+  width: 35%;
+}
+
+.restoran-products {
+  width: 50%;
+}
+
+.menu {
+  border: 1px solid var(--color-gray-light);
+  margin-top: 10px;
+  padding: 0 0 0 10px;
+}
+
+.product {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-gray-light);
+  border-right: 1px solid var(--color-gray-light);
+  border-left: 1px solid var(--color-gray-light);
+}
+
+.product-info {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.addToCart {
+  width: 25px;
+  background-color: var(--color-green);
+  display: flex;
+  border: none;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.add-icon {
+  width: 10px;
+  height: 10px;
+  fill: #fff;
+}
+
+.product-name {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: var(--color-orange);
+}
+
+.product-header p {
+  margin: 0;
+}
+
+.cart-item-header {
+  width: 52%;
+}
+
+.price {
+  min-width: max-content;
+  width: 20%;
+}
+
+.cart-header {
+  background-color: var(--color-primary);
+  display: flex;
+  min-width: 250px;
+  color: var(--color-white);
+  align-items: center;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.cart {
+  margin-right: 10px;
+}
+
+.cart-header-text {
+  width: max-content;
+  margin-left: 10px;
+}
+
+.clear__cart {
+  border: none;
+  background: transparent;
+}
+
+.clear__cart svg{ 
+  width: 20px;
+  fill: white;
+}
+
+.cart-actions svg{
+  width: 20px;
+  height: 20px;
+}
+
+.remove__item {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.remove__item svg{
+  width: 10px;
+  height: 10px;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+}
+
+.item__amount {
+  min-width: 20px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid lightgray;
+}
+
+.cart__item {
+  display: flex;
+  place-items: center;
+  border: 1px solid lightgray;
+  padding: 0 10px;
+}
+
+.restoran {
+  height: auto;
+  padding: 23px;
+  background-image: url('./assets/burger.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.restoran-name {
+  padding: 10px;
+  margin: 0;
+}
+
+.restoran-address {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.restoran-main {
+  display: flex;
+}
+
+.restoran-votes {
+  display: flex;
+  margin-left: 10px;
+}
+
+.restoran-vote {
+  background-color: var(--color-green-light);
+  width: 30px;
+  padding: 5px;
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: var(--color-white);
+}
+
+.restoran-vote-transparent {
+  margin-top: 10px;
+}
+
+.vote {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.servis {
+  display: flex;
+  flex-direction: column;
+  height: 38px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.servis-bold {
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.servis-img {
+  width: fit-content;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=360, initial-scale=1">
+	<title>Yemek Sepeti</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="header">
+    <img class="logo" src="/assets/logo.svg"/>
+  </section>
+  <main class="main-container">
+    <section class="cart__overlay">
+      <div class="cart">
+        <div class="cart-header">
+          <h1 class="cart-header-text">YEMEK SEPETIM</h1>
+          <button class="clear__cart btn">
+            <svg>
+              <use xlink:href="./assets/sprite.svg#icon-trash"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="cart__centent">
+        </div>
+
+        <div class="cart__footer">
+          <h3 class="empty-cart">Sepetiniz henuz bos</h3>
+          <h4>Toplam: <span class="cart__total">0</span></h4>
+        </div>
+      </div>
+    </section>
+    <section class="restoran-products">
+      <div class="restoran-container">
+
+      </div>
+      <div class="products">
+        <div class="product__center"></div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
