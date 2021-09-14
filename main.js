@@ -7,7 +7,6 @@ const overlay = document.querySelector(".cart__overlay");
 const cartTotal = document.querySelector(".cart__total");
 const clearCartBtn = document.querySelector(".clear__cart");
 const emptyCart = document.querySelector('.empty-cart');
-const cartFooter = document.querySelector('.cart__footer');
 const restoranDOM = document.querySelector('.restoran-container');
 
 
@@ -56,10 +55,7 @@ class UI {
                     </div>
                   </div>
                 </div>
-                `
-
-  
-
+              `
     restoranDOM.innerHTML = results;
   }
 
@@ -144,30 +140,28 @@ class UI {
     const div = document.createElement("div");
     div.classList.add("cart__item");
 
-    div.innerHTML = `
-          <h4 class="cart-item-header">${cartItem.DisplayName}</h4>
-          <p class="price">${cartItem.ListPrice} TL</p>
-          <div class="cart-actions">
-            <span class="increase" data-id=${cartItem.ProductId}>
-              <svg>
-                <use xlink:href="./assets/sprite.svg#icon-angle-up"></use>
-              </svg>
-            </span>
-            <p id="item__amount-${cartItem.ProductId}" class="item__amount">1</p>
-            <span class="decrease" data-id=${cartItem.ProductId}>
-              <svg>
-                <use xlink:href="./assets/sprite.svg#icon-angle-down"></use>
-              </svg>
-            </span>
-          </div>
-
-            <span class="remove__item" data-id=${cartItem.ProductId}>
-              <svg>
-                <use xlink:href="./assets/sprite.svg#icon-cross"></use>
-              </svg>
-            </span>
-
-        </div>`;
+    div.innerHTML = 
+      ` <h4 class="cart-item-header">${cartItem.DisplayName}</h4>
+        <p class="price">${cartItem.ListPrice} TL</p>
+        <div class="cart-actions">
+          <span class="increase" data-id=${cartItem.ProductId}>
+            <svg>
+              <use xlink:href="./assets/sprite.svg#icon-angle-up"></use>
+            </svg>
+          </span>
+          <p id="item__amount-${cartItem.ProductId}" class="item__amount">1</p>
+          <span class="decrease" data-id=${cartItem.ProductId}>
+            <svg>
+              <use xlink:href="./assets/sprite.svg#icon-angle-down"></use>
+            </svg>
+          </span>
+        </div>
+        <span class="remove__item" data-id=${cartItem.ProductId}>
+          <svg>
+            <use xlink:href="./assets/sprite.svg#icon-cross"></use>
+          </svg>
+        </span>
+      `;
     cartContent.appendChild(div);
   }
 
