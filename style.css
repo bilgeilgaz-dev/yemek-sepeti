@@ -9,7 +9,7 @@
   --min-width: 360px;
   --max-width: 1200px;
   --base-font-family: Arial, Helvetica, sans-serif;
-  --fancy-font-family: 'Lobster', serif;
+  --fancy-font-family: "Lobster", serif;
   font-size: 12px;
 }
 
@@ -120,12 +120,12 @@ body {
   background: transparent;
 }
 
-.clear__cart svg{ 
+.clear__cart svg {
   width: 20px;
   fill: white;
 }
 
-.cart-actions svg{
+.cart-actions svg {
   width: 20px;
   height: 20px;
 }
@@ -135,8 +135,7 @@ body {
   display: flex;
   justify-content: center;
 }
-
-.remove__item svg{
+.remove__item svg {
   width: 10px;
   height: 10px;
 }
@@ -163,7 +162,7 @@ body {
 .restoran {
   height: auto;
   padding: 23px;
-  background-image: url('./assets/burger.svg');
+  background-image: url("./assets/burger.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -228,3 +227,31 @@ body {
   width: fit-content;
   margin-bottom: 4px;
 }
+
+@media (max-width: 600px) {
+  .header {
+    padding: 10px;
+  }
+
+  .main-container {
+    flex-direction: column !important;
+  }
+
+  .cart__overlay, .restoran-products {
+    width: 100%;
+  }
+
+  .cart {
+    margin-right: 0;
+  }
+
+  .restoran-main {
+    flex-direction: column;
+  }
+
+  .restoran {
+    padding: 23px 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
