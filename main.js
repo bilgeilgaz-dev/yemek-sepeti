@@ -8,7 +8,7 @@ const cartTotal = document.querySelector(".cart__total");
 const clearCartBtn = document.querySelector(".clear__cart");
 const emptyCart = document.querySelector('.empty-cart');
 const cartFooter = document.querySelector('.cart__footer');
-const restoranDOM = document.querySelector('.restoran-container')
+const restoranDOM = document.querySelector('.restoran-container');
 
 
 let cart = [];
@@ -103,19 +103,28 @@ class UI {
 
       button.addEventListener("click", e => {
         e.preventDefault();
+        
+        if(!cart.some(cartItem =>  cartItem.ProductId === id)){
+          // Get product from products
+          const cartItem = { ...Storage.getProduct(id), amount: 1 };
 
-        // Get product from products
-        const cartItem = { ...Storage.getProduct(id), amount: 1 };
+          // Add product to cart
+          cart = [...cart, cartItem];
 
-        // Add product to cart
-        cart = [...cart, cartItem];
-
-        // save the cart in local storage
-        Storage.saveCart(cart);
-        // set cart values
-        this.setItemValues(cart);
-        // display the cart item
-        this.addCartItem(cartItem);
+          // save the cart in local storage
+          Storage.saveCart(cart);
+          // set cart values
+          this.setItemValues(cart);
+          // display the cart item
+          this.addCartItem(cartItem);
+          emptyCart.innerHTML = '';
+        } else {
+          let tempItem = cart.find(item => item.ProductId === id);
+          tempItem.amount++;
+          Storage.saveCart(cart);
+          this.setItemValues(cart);
+          document.querySelector(`#item__amount-${tempItem.ProductId}`).innerText = tempItem.amount;
+        }
       });
     });
   }
@@ -132,7 +141,6 @@ class UI {
   }
 
   addCartItem(cartItem) {
-    console.log('cartItem', cartItem);
     const div = document.createElement("div");
     div.classList.add("cart__item");
 
@@ -145,7 +153,7 @@ class UI {
                 <use xlink:href="./assets/sprite.svg#icon-angle-up"></use>
               </svg>
             </span>
-            <p class="item__amount">1</p>
+            <p id="item__amount-${cartItem.ProductId}" class="item__amount">1</p>
             <span class="decrease" data-id=${cartItem.ProductId}>
               <svg>
                 <use xlink:href="./assets/sprite.svg#icon-angle-down"></use>
@@ -211,32 +219,29 @@ class UI {
         }
       }
     });
-    /* console.log('cartContent', cartContent.childElementCount);
+
     if(cartContent.childElementCount === 0) {
-      const emptyCartText = document.createElement("h3");
-      const node = document.createTextNode("Sepetiniz henuz bos");
-      emptyCartText.appendChild(node);
-      cartFooter.appendChild(emptyCartText);
+      emptyCart.innerHTML = 'Sepetiniz henuz bos';
     } else {
-      emptyCart.remove();
-    } */
+      emptyCart.innerHTML = '';
+    }
   }
 
   clearCart() {
     const cartItems = cart.map(item => item.ProductId);
-    console.log('cartItems', cartItems);
     cartItems.forEach(id => this.removeItem(id));
 
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
     }
+    emptyCart.innerHTML = "Sepetiniz henuz bos";
   }
 
   removeItem(id) {
     cart = cart.filter(item => item.ProductId !== id);
-    console.log('cart', cart);
     this.setItemValues(cart);
     Storage.saveCart(cart);
+    emptyCart.innerHTML = (cart.length === 0) ? 'Sepetiniz henuz bos' : '';
   }
 
   singleButton(id) {
